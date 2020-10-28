@@ -1,0 +1,109 @@
+首字母大写： .title()
+全字母大写： .upper()
+全字母小写： .lower()
+
+
+列表：
+    list = ['dog', 'hello', 'name', 'color']
+列表中插入元素：
+    list.insert(2, 'cat')  // (索引， 内容)，插入之后的内容索引+1
+列表中删除元素：
+    del list[2]  // 删除第三个元素，后边的索引-1
+    list_pop = list.pop(2)  // 删除列表中第三个元素，并把所删除元素的值赋给list_pop
+    list.remove('name')  // 根据值删除元素
+列表排序：
+    永久性排序：
+        list.sort()  // list = ['color', 'dog', 'hello', 'name']
+        list.sort(reserve=True)  // list = ['name', 'hello', 'dog', 'color']
+    临时排序：
+        list.sorted()  // 不改变原列表顺序
+列表顺序倒过来：
+    list.reserve()
+列表长度：
+    len(list)
+遍历列表：
+    for i in list:
+创建数字列表：
+    list_number = list[range(1, 11, 2)]  // 从1到10，没隔2个数取一个
+    // list_number = [1, 3, 5, 7, 9]
+数字列表求和：
+    sum(list_number)
+复制列表：
+    list_copy = list[:]
+
+
+字典：
+    dic = {'name': 'wang', 'age': 9, 'color': 'red'}
+添加键值对：
+    dic['gender'] = 'boy'
+删除键值对：
+    del dic['age']
+遍历所有键值对：
+    for key, value in dic.items():
+遍历所有键：
+    for key in dic.keys():
+按顺序遍历所有键：
+    for key in sorted(dic.keys()):
+遍历所有值：
+    for value in dic.values():
+遍历所有不重复的值：
+    for value in set(dic.values()):
+
+input输入函数：
+    message = input("我的输入为：")
+
+
+函数传递任意数量的实参：(单个*号为元组，两个*号为字典)
+    def info(*message):
+        print(message)
+    info('wang')
+    info('wang', '21', 'boy')
+
+文件操作：
+    file_path = ''
+    with open(file_path) as read_file:  // 读取文件
+        oneline = read_file.readline()
+        alllines = read_file.readlines()
+
+    file = os.listdir(files_path)  // 读取文件夹
+
+    with open(file_path, 'w') as write_file:  // 重新写入
+        write_file.write('hello world.\n')
+
+    with open(file_path, 'a') as write_file:  // 以附加模式写入
+        write_file.write('hello world again.\n')
+
+异常处理：
+    try:
+        print(5/0)
+    except ZeroDivisionError:
+        print('you can not divie bo 0.')
+
+cv2操作：
+    cv2.imread('')
+    cv2.imwrite('', img)
+    cv2.rectangle(img, (x1, y1), (x2, y2), (0, 0, 255), thickness=2)
+        // 在图像上画框，（图片，左上角坐标，右下角坐标，颜色，粗细）
+    cv2.putText(img, objectname, (x1, y1), cv2.FONT_HERSHEY_COMPLEX, 0.7, (0, 0, 0), thickness=1)
+        // 在图像上写文字
+
+split切片:
+    split()
+    image_pre, ext = os.path.splitext(image)  // 文件的前缀和后缀
+
+json操作：
+    number = [0, 1, 2, 3, 4]
+    file = 'number.json'\
+    with open(file, 'w') as json_file:
+        json.dump(number, json_file)
+        # json.dumps(number, json_file)
+
+    with open(file) as json_file:
+        number = json.load(json_file)
+
+xml操作：
+    import xml.dom.minidom
+    DOMTree = xml.dom.minidom.parse(xmlfile)  // 读取xml文件
+    collection = DOMTree.documentElement  // 得到文档元素对象
+    filenamelist = collection.getElementsByTagName("filename")  // 读取"filename"节点
+    filename = filenamelist[0].childNodes[0].data  // 读取"filename"节点中的内容
