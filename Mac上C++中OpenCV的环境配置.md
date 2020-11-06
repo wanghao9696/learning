@@ -7,7 +7,7 @@
 cd opencv  
 mkdir build  
 cd build  
-#注意下一步最后有两个点，markdown编辑出来可能显示有问题
+#注意下一步最后有两个点，markdown编辑出来可能显示有问题  
 cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr/local ..  
 make -j8  
 make install  
