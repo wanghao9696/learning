@@ -1,0 +1,26 @@
+## STL-常用容器
+
+string容器：
+    与char*的区别：
+        char*是一个指针
+        string是一个类，类内部封装了char*，管理这个这个字符串，是一个char*型的容器
+
+vector容器：
+    与数组相似，成为单端数组
+    数组是静态的，vector是动态的，可以扩展
+    声明：
+        vector<int> v;
+        vector<vector<int>> v2;
+    语法：
+        v.empty(); // 判断容器是否为空
+        v.capacity(); // 容器的容量
+        v.size(); // 返回容器中元素的个数
+        v.resize(num, elem); // 重新指定容器的长度为num，若容器变长，则以默认值0或elem值填充新位置
+        
+        v.push_back(ele); // 尾部插入元素ele
+        v.pop_back(); // 删除最后一个元素
+        v.insert(const_iterator pos, ele); // 迭代器指向位置pos插入元素ele
+        v.insert(const_iterator pos, int count, ele); // 迭代器指向位置pos插入count个元素ele
+        v.erase(const_iterator pos); // 删除迭代器指向的元素
+        v.erase(const_iterator start, const_iterator end); // 删除迭代器从start到end之间的也元素
+        v.clear(); // 删除容器中的所有元素
