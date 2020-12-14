@@ -76,4 +76,67 @@ stack容器：
         stk.top(); // 返回栈顶元素
 
 queue容器：
-    
+    queue是一种先进先出的数据结构，有两个出口
+    允许从一端新增元素，从另一端移除元素
+    只有队头和队尾才可以被外界访问，因此不允许有遍历行为
+    声明：
+        queue<int> que;
+    语法：
+        que.empty(); // 判断队列是否为空
+        que.size(); // 返回队列的大小
+
+        que.push(elem); // 往队尾添加元素
+        que.pop(); // 从队头移除第一个元素
+        que.back(); // 返回最后一个元素
+        que.front(); // 返回第一个元素
+
+list容器：
+    将数据进行链式存储
+    链表是一种物理存储单元上非连续的存储结构，数据元素的逻辑顺序是通过链表中的指针链接实现的
+    链表的存储方式并不是连续的内存空间，因此链表list中的迭代器只支持前移和后移，属于双向迭代器
+    由一系列的结点组成
+    结点的组成：
+        一个是存储数据元素的数据域，另一个是存储下一个结点地址的指针域
+    list的优点：
+        采用动态存储分配，不会造成内存浪费和溢出
+        链表执行插入和删除操作十分方便，修改指针即可，不需要移动大量元素
+    list的缺点：
+        链表灵活，但是空间（指针域）和时间（遍历）额外耗费较大
+    声明：
+        list<int> lst;
+    语法：
+        lst.assign(beg, end); // 将[beg, end)区间中的数据拷贝赋值给本身
+        lst.assign(n, elem); // 将n个elem拷贝赋值给本身
+        lst.swap(lst); // 将lst与本身的元素互换
+
+        lst.empty(); // 判断容器是否为空
+        lst.size(); // 返回容器中元素的个数
+        lst.resize(num, elem); // 重新指定容器的长度为num，若容器变长，则以elem值填充新位置
+
+        lst.push_back(elem); // 在容器尾部加入一个元素
+        lst.pop_back(); // 删除容器中最后一个元素
+        lst.push_front(elem); // 在容器开头插入一个元素
+        lst.pop_front(); // 在容器开头移除一个元素
+        lst.insert(pos, elem); // 在pos位置插elem元素的拷贝，返回新数据位置
+        lst.insert(pos, n, elem); // 在pos位置插入n个elem数据，无返回值
+        lst.insert(pos, beg, end); // 在pos位置插入[beg, end)区间的数据，无返回值
+        lst.clear(); // 移除容器中的所有数据
+        lst.earse(beg, end); // 删除[beg, end)区间的数据，返回下一个数据的位置
+        lst.earse(pos); // 删除pos位置的数据，返回下一个数据的位置
+        lst.remove(elem); // 删除容器中所有与elem值匹配的元素
+
+        lst.front(); // 返回第一个元素
+        lst.back(); // 返回最后一个元素
+
+        lst.reverse(); // 反转链表
+        lst.sort(); // 链表排序
+
+set/multiset容器：
+    所有元素都会在插入时自动被排序
+    本质：
+        set/multiset属于关联式容器，底层结构是用二叉树实现
+    区别：
+        set不允许容器中有重复的元素
+        multiset允许容器中有重复的元素
+    set声明：
+        set<int> st;
