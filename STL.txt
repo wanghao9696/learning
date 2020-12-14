@@ -6,7 +6,7 @@ string容器：
         string是一个类，类内部封装了char*，管理这个这个字符串，是一个char*型的容器
 
 vector容器：
-    与数组相似，成为单端数组
+    与数组相似，称为单端数组
     数组是静态的，vector是动态的，可以扩展
     声明：
         vector<int> v;
@@ -19,8 +19,61 @@ vector容器：
         
         v.push_back(ele); // 尾部插入元素ele
         v.pop_back(); // 删除最后一个元素
+
         v.insert(const_iterator pos, ele); // 迭代器指向位置pos插入元素ele
         v.insert(const_iterator pos, int count, ele); // 迭代器指向位置pos插入count个元素ele
         v.erase(const_iterator pos); // 删除迭代器指向的元素
         v.erase(const_iterator start, const_iterator end); // 删除迭代器从start到end之间的也元素
         v.clear(); // 删除容器中的所有元素
+
+        v.at(int idx); // 返回索引idx所指的数据
+        v.front(); // 返回容器中第一个数据元素
+        v.back(); // 返回容器中最后一个数据元素
+
+deque容器：
+    双端数组，可以对头端进行插入删除操作
+    与vector的区别：
+        vector对于头部的插入删除效率低，数据量越大，效率越低
+        deque相对而言，对头部的插入删除速度比vector快
+        vector访问元素时的速度会比deque快
+    deque内部原理：
+        内部有个中控器，维护每段缓冲区中的内容，缓冲区中存放真实数据，中控器维护缓冲区的地址
+    声明：
+        deque<int> deqT;
+        deque<deque<int>> deqT2;
+    语法：
+        deqT.empty(); // 判断容器是否为空
+        deqT.size(); // 返回容器中元素的个数
+        deqT.resize(num, elem); // 重新指定容器的长度为num，若容器变长，则以默认值0或elem值填充新位置
+
+        deqT.push_back(elem); // 在容器尾部添加一个数据
+        deqT.push_front(elem); // 在容器头部插入一个数据
+        deqT.pop_back(); // 删除容器最后一个数据
+        deqT.pop_front(); // 删除容器第一个数据
+
+        deqT.insert(pos, elem); // 在pos位置插入一个elem元素的拷贝，返回新数据的位置
+        deqT.insert(pos, n, elem); // 在pos位置插入n个elem数据，无返回值
+        deqT.insert(pos, beg, end); // 在pos位置插入[beg, end]区间的数据，无返回值
+        deqT.clear(); // 清空容器的所有数据
+        deqT.earse(beg, end); // 删除[beg, end]区间的数据，返回下一个数据的位置
+        deqT.earse(pos); // 删除pos位置的数据，返回下一个数据的位置
+
+        deqT.at(int idx); // 返回索引idx所指的数据
+        deqT.front(); // 返回容器中第一个数据元素
+        deqT.back(); // 返回容器中最后一个数据元素
+
+stack容器：
+    stack是一种先进后出的数据结构，只有一个出口
+    栈中只有顶端的元素才可以被外界使用，因此栈不允许有遍历行为
+    声明：
+        stack<int> stk;
+    语法：
+        stk.empty(); // 判断栈是否为空
+        stk.size(); // 返回栈的大小
+
+        stk.push(elem); // 向栈顶添加元素
+        stk.pop(); // 从栈顶移除一个元素
+        stk.top(); // 返回栈顶元素
+
+queue容器：
+    
