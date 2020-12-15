@@ -138,5 +138,45 @@ set/multiset容器：
     区别：
         set不允许容器中有重复的元素
         multiset允许容器中有重复的元素
+        set不可以插入重复数据，而multiset可以
+        set插入数据的同时会返回插入结果，表示插入是否成功
+        multiset不会检测数据，因此可以插入重复数据
     set声明：
         set<int> st;
+    set语法：
+        st.empty(); // 判断容器是否为空
+        st.size(); // 返回容器中元素的数目
+        st.swap(st); // 交换两个集合容器
+
+        st.insert(elem); // 在容器中插入元素
+        st.clear(); // 清除所有元素
+        st.earse(pos); // 删除pos迭代器所指的元素，返回下一个元素的迭代器
+        st.earse(beg, end); // 删除区间[beg, end)的所有元素，返回下一个元素的迭代器
+        st.earse(elem); // 删除容器中值为elem的元素
+
+        st.find(key); // 查找key是否存在，若存在，返回改键的元素迭代器；若不存在，返回st.end();
+        st.count(key); // 统计key的元素个数
+    pair对组创建：
+        创建方式：
+            1. pair<type, type> p(value1, value2);
+            2. pair<type, type> p = make_pair(value1, value2);
+        访问：
+            p.first
+            p.second
+
+map/multimap容器：
+    map中的所有元素都是pair
+    pair中第一个元素为key（键值），起到索引作用，第二个元素为value（实值）
+    所有元素都会根据元素的键值自动排序
+    本质：
+        map/multimap属于关联式容器，底层结构是用二叉树实现
+    优点：
+        可以根据key值快速找到value值
+    区别：
+        map不允许容器中有重复key值元素
+        multimap允许容器中有重复key值元素
+    声明：
+        map<T1, T2> mp;
+    语法：
+        mp.empty(); // 判断容器是否为空
+        mp.size(); // 返回容器中元素的数目
