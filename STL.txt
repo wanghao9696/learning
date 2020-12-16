@@ -29,6 +29,14 @@ vector容器：
         v.at(int idx); // 返回索引idx所指的数据
         v.front(); // 返回容器中第一个数据元素
         v.back(); // 返回容器中最后一个数据元素
+    vector的遍历：
+        for(vector<vector<int>>::iterator it = v.begin(); it != v.end(); it++)
+        {
+            for(ventor<int>::iterator vit = (*it).begin(); vit != (*it).end(); vit++)
+            {
+                cout << *vit << endl; // 取值运算
+            }
+        }
 
 deque容器：
     双端数组，可以对头端进行插入删除操作
@@ -180,3 +188,60 @@ map/multimap容器：
     语法：
         mp.empty(); // 判断容器是否为空
         mp.size(); // 返回容器中元素的数目
+
+        mp.insert(elem); // 在容器中插入元素
+        mp.clear(); // 清除所有元素
+        mp.earse(pos); // 删除pos迭代器所指的元素，返回下一个元素的迭代器
+        mp.earse(beg, end); // 删除区间[beg, end)的所有元素，返回下一个元素的迭代器
+        mp.earse(key); // 删除容器中值为key的元素
+
+        mp.find(key); // 查找key是否存在，若存在，返回该键的元素的迭代器；若不存在，返回set.end()
+        mp.count(key); // 统计key的元素个数
+
+
+## STL-函数对象
+
+函数对象
+    概念：
+        重载函数调用操作符的类，其对象常称为函数对象
+        函数对象使用重载的()时，行为类似函数调用，也叫仿函数
+    本质：
+        函数对象（仿函数）是一个类，不是一个函数
+
+谓词：
+    概念：
+        返回bool类型的仿函数称为谓词
+        如果operator()接受一个参数，那么叫做一元谓词
+        如果operator()接受两个参数，那么叫做二元谓词
+
+内建函数对象：
+    分类：
+        算术仿函数
+        关系仿函数
+        逻辑仿函数
+
+
+## STL-常用算法
+    算法主要由头文件<algorithm>、<functional>、<numeric>组成
+    <algorithm>是所有STL头文件中最大的一个，范围涉及到比较、交换、查找、遍历操作、复制、修改等
+    <numeric>体积很小，只包括几个序列上面进行简答数学运算的模板函数
+    <functional>定义了一些模板类，用以声明函数对象
+
+常用遍历算法：
+    for_each：
+        实现遍历容器
+        函数原型：
+            for_each(iterator beg, iterator end, _func);
+            // beg 开始迭代器
+            // end 结束迭代器
+            // _func 函数或者函数对象
+    transform：
+        搬运容器到另一个容器中
+        函数原型：
+            transform(iterator beg1, iterator end1, iterator beg2, _func)
+            // beg1 源容器开始迭代器
+            // end1 源容器结束迭代器
+            // beg2 目标容器开始迭代器
+            // _func 函数或者函数对象
+
+常用查找算法：
