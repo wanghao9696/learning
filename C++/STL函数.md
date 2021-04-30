@@ -116,7 +116,7 @@ lst.sort(); // 排序
 ```
 
 ## set/multiset
-> **集合**，关联式容器，底层结构用二叉树实现
+> **集合**，关联式容器，底层结构用二叉树（红黑树）实现
 
 > 数据插入时会自动被排序
 
@@ -148,7 +148,7 @@ p.second;
 
 > 所有元素根据元素的键值自动排序
 
-> map/multimap属于关联式容器，底层结构通过二叉树实现
+> map/multimap属于关联式容器，底层结构通过二叉树（红黑树）实现
 
 > map不允许容器中有重复的key值；multimap允许容器中有重复的key值
 ```
@@ -167,4 +167,51 @@ m.clear();
 
 m.find(key);
 m.count(key);
+```
+
+## 常用算法
+
+### 常用遍历算法
+```
+for_each(iterator beg, iterator end, _func); // 遍历容器元素
+transform(iterator beg1, iterator end1, iterator beg2, _func); // 搬运容器到另一个容器中
+```
+
+### 常用查找算法
+```
+find(iterator beg, iterator end, value); // 查找元素；返回迭代器
+find_if(iterator beg, iterator end, _Pred); // 按条件查找元素；返回迭代器
+adjacent_find(iterator beg, iterator end); // 查找相邻重复元素
+binary_search(iterator beg, iterator end, value); // 二分查找法；返回bool值
+count(iterator beg, iterator end, value); // 统计元素个数
+count_if(iterator beg, iterator end, _Pred); // 按条件统计元素个数
+```
+
+### 常用排序算法
+```
+sort(iterator beg, iterator end, _Pred); // 对容器内元素进行排序
+random_shuffle(iterator beg, iterator end); // 洗牌，指定范围内的元素随机调整次序
+merge(iterator beg1, iterator end1, iterator beg2, iterator end2, iterator dest); // 容器元素合并，并存储到另一容器中
+reverse(iterator beg, iterator end); // 反转指定范围的元素
+```
+
+###  常用拷贝和替换算法
+```
+copy(iterator beg, iterator end, iterator dest); // 容器内指定范围的元素拷贝到另一容器中
+replace(iterator eng, iterator end, oldvalue, newvalue); // 容器内指定范围内的旧元素替换为新元素
+repalce_if(iterator beg, iterator end, _Pred, newvalue); // 容器内指定范围满足条件的旧元素替换为新元素
+swap(container c1, container c2); // 互换两个容器元素
+```
+
+### 常用算术生成算法
+```
+accumulate(iterator beg, iterator end, value); // 计算容器元素累计总和
+fill(iterator beg, iterator end, value); // 向容器中添加元素
+```
+
+### 常用集合算法
+```
+set_intersection(iterator beg1, iterator end1, iterator beg2, iterator end2, iterator dest); // 求两个容器的交集
+set_union(iterator beg1, iterator end1, iterator beg2, iterator end2, iterator dest); // 求两个容器的并集
+set_difference(iterator beg1, iterator end1, iterator beg2, iterator end2, iterator dest); // 求两个元素的差集
 ```
