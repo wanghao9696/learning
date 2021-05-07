@@ -25,6 +25,7 @@ bool isSorted(vector<int> v, int n)
     {
         if(v[i] > v[i+1])
         {
+            cout << "排序失败！" << endl;
             return false;
         }
     }
