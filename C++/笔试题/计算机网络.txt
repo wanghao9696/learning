@@ -1,0 +1,5 @@
+TCP/IP结构机协议：
+    网络接口层：Wi-Fi、ATM、GPRS、EVDO
+    网际层：IP、ICMP、IGMP
+    传输层：TCP、UDP、TLS
+    

@@ -1,0 +1,28 @@
+vim命令：
+    i // 进入编辑模式
+    esc // 退出编辑模式
+    :w // 保存
+    :w filename // 另存为filename
+    :wq! // 保存并强制退出
+    :wq! filename // 以filename为文件名保存后强制退出
+    :q // 退出（如果文件修改未保存，不能使用这条命令，只能强制退出，退出后的文件未保存）
+    :q! // 强制退出
+    :x // 保存并退出
+
+-a：与
+-o：或
+!：非
+
+uniq：删除相邻的重复行
+
+允许ftp拒绝ssh：usermod -s /sbin/nologin name
+允许ftp和ssh：usermod -s /bin/bash name
+不允许ftp和ssh：vim /etc/ssh/sshd_config 修改配置文件
+禁止用户user1登陆：DenyUsers user1
+禁止用户组group1的所有用户登录：DenyGroups group1
+
+bash编程：
+    大于：gt
+    大于等于：ge
+
+drop，delete，truncate均可以清空表和视图
