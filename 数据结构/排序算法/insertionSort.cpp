@@ -1,31 +1,19 @@
-// 插入排序
-#include<iostream>
-#include<vector>
-
 #include"SortTestHelper.h"
-
-using namespace std;
-
-void insertionSort(vector<int> & v, int n)
-{
-    for(int i=1; i<n; i++)
-    {
-        int temp = v[i];
-        int j;
-        for(j=i; j>0 && v[j-1] > temp; j--)
-        {
-            v[j] = v[j-1];
-        }
-        v[j] = temp; // 内层循环比较完之后再做赋值操作
-    }
-}
+#include"SelectionSort.h"
+#include"InsertionSort.h"
 
 int main()
 {
     int n = 10000;
-    vector<int> v = generateRandomVector(n, 1, n);
+    // int* arr = SortTestHelper::generateRandomArray(n, 0, n);
+    int* arr = SortTestHelper::generateNearlyOrderArray(n, 10);
+    int *arr2 = SortTestHelper::copyIntArray(arr, n);
 
-    testSort("insertionSort", insertionSort, v, n);
+    SortTestHelper::testSort("Insertion Sort", insertionSort, arr, n);
+    SortTestHelper::testSort("Selection Sort", selectionSort, arr2, n);
+
+    delete[] arr;
+    delete[] arr2;
 
     return 0;
 }
