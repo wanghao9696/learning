@@ -26,3 +26,24 @@ c++数学运算：
     绝对值：abs(n)
 #include <iomanip>
 cout << setiosflags(ios::fixed) << setprecision(2) << sum << endl;
+
+c++四种强制类型转换方式及应用场景：
+    1. staric_cast
+        最常用的类型转换符
+        比如int转换为float：f = staric_cast<float>(i);
+    2. const_cast
+        用于把const类型的指针变为非const类型的指针
+        比如：const int* fun(int x, int y){}   int* ptr = const_cast<int*>(fun(2, 3))
+    3. dynamic_cast
+        该操作符用于运行时检查该转换是否类型安全，但只在多态类型时合法，即该类至少具有一个虚拟方法
+    4. reinterpret_cast
+        interpret是解释的意思，reinterpret即为重新解释，此标识符的意思即为数据的二进制形式重新解释，但是不改变其值
+
+字符串切片：
+    #include<sstream>
+    string s;
+    cin >> s;
+    stringstream ss;
+    ss << s;
+    string a;
+    getline(ss, a, ',');
