@@ -1,93 +1,55 @@
 #include<iostream>
-#include<vector>
 #include<string>
-#include<cstring>
+#include<vector>
+#include<sstream>
+#include<string.h>
 #include<algorithm>
 
 using namespace std;
 
-bool isZhiShu(int n)
-{
-    if(n == 1)
-        return true;
-    else if(n == 2)
-        return true;
-    else
-    {
-        for(int i=2; i<n; i++)
-        {
-            if(n % i == 0)
-                return false;
-        }
-        return true;
-    }
-}
-
 int main()
 {
-    long long n;
-    int num, min, max, m;
-    string s, x, t;
-    cin >> s;
-    cin >> n;
-	if(n == 1)
-    {
-        cout << "No" << endl;
-        cout << 1 << endl;
-    }
-    x = s;
-    for(int i=0; i<n; i++)
-    {
-        if(x.length() < n)
-        {
-            x += s;
-        }
-        else
-            break;
-    }
-    for(int i=0; i<n; i++)
-    {
-        t += x[i];
-    }
-    // cout << t << endl;
+    string str;
+    getline(cin, str);
+    vector<string> v;
     
-    vector<char> str;
-    vector<int> v;
-    char a;
-    num = 1;
-    for(int i=0; i<t.length(); i++)
+    stringstream ss;
+    ss << str;
+    string a;
+    while(getline(ss, a, ';'))
     {
-        a = t[i];
-        str.push_back(a);
+        v.push_back(a);
     }
-    for(int i=0; i<str.size(); i++)
+    string s = v.front();
+    string t = v.back();
+
+    vector<int> vs;
+    vector<int> vt;
+    
+    for(int i=1; i<s.length()+1; i++)
     {
-        int r = count(str.begin(), str.end(), str[i]);
-        v.push_back(r);
+        string temp = s.substr(0, i);
+        int num = count(temp.begin(), temp.end(), temp.back());
+        vs.push_back(num);
     }
-    sort(v.begin(), v.end());
-    min = v.front();
-    max = v.back();
-    m = max - min;
-    if(m == 0)
+    for(int i=1; i<t.length()+1; i++)
     {
-        cout << "No" << endl;
-        cout << 0 << endl;
+        string temp = t.substr(0, i);
+        int num = count(temp.begin(), temp.end(), temp.back());
+        vt.push_back(num);
     }
+
+    bool ret = true;
+    for(int i=0; i<vs.size(); i++)
+    {
+        if(vs[i] != vt[i])
+            ret = false;
+    }
+
+    if(ret)
+        cout << "True" << endl;
     else
-    {
-        bool ret = isZhiShu(m);
-        if(ret)
-        {
-            cout << "Yes" << endl;
-            cout << m << endl;
-        }
-        else
-        {
-            cout << "No" << endl;
-            cout << m << endl;
-        }
-    }
-    
+        cout << "False" << endl;
+
     return 0;
 }

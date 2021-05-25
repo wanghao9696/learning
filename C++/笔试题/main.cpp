@@ -1,43 +1,57 @@
 #include<iostream>
+#include<string>
 #include<vector>
+#include<map>
 #include<algorithm>
 
 using namespace std;
 
 int main()
 {
-    int n, k, a;
-    cin >> n;
-    cin  >> k;
-    
-    vector<int> v;
-    while(cin >> a)
+    string s;
+    cin >> s;
+
+    map<char, int> m;
+
+    for(int i=0; i<s.length(); i++)
     {
-        v.push_back(a);
-        if(cin.get() == '\n')
-            break;
-    }
-    
-    vector<int> res;
-    for(int i=0; i<v.size(); i++)
-    {
-        if(v[i] > k)
-            res.push_back(i);
-    }
-    
-    vector<int> sum;
-    int b = 0;
-    for(int i=1; i<res.size(); i++)
-    {
-        if(res[i] - res[i-1] == 1)
+        if(m.count(s[i]) == 0)
         {
-            b += 1;
-            sum.push_back(b);
+            m.insert(pair<char, int>(s[i], 1));
+        }
+        else
+        {
+            m[s[i]]++;
         }
     }
-    sort(sum.begin(), sum.end());
-    int rel = sum.back();
-    cout << rel << endl;
+
+    vector<int> v;
+    for(map<char, int>::iterator it = m.begin(); it!=m.end(); it++)
+    {
+        v.push_back(it->second);
+    }
+    sort(v.begin(), v.end());
+
+
+    int num = v.front();
+    vector<char> c;
+    for(map<char, int>::iterator it = m.begin(); it!=m.end(); it++)
+    {
+        if(it->second == num)
+            c.push_back(it->first);
+    }
+
+
+    for(string::iterator it = s.begin(); it != s.end(); it++)
+    {
+        if(count(c.begin(), c.end(), *it) > 0)
+        {
+            s.erase(it);
+            it--;
+        }
+    }
+
+    cout << s << endl;
     
     return 0;
 }
