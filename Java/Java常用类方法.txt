@@ -1,0 +1,73 @@
+转义序列：
+    \t : tab
+    \b : 后退
+    \n : 换行
+    \r : 回车
+    \f : 换页符
+
+Number & Math类方法：
+    整型转换为字符串:
+        Interger.toString(10);
+        x.toString();
+    字符串转换为整型：
+        Interger.parseInt("10");
+    绝对值：
+        Math.abs();
+    向上取整：
+        double d1 = Math.ceil(d2);
+        float f1 = Math.ceil(f2);
+    向下取整：
+        double d1 = Math.floor(d2);
+        float f1 = Math.floor(f2);
+    四舍五入:
+        double d1 = Math.round(d2);
+        double d1 = Math.rint(d2);
+        注：使用rint方法当出现xxx.500时，返回值为偶数
+    最大最小值：
+        Math.min(d1, d2);
+        Math.max(d1, d2);
+    自然数：
+        e：Math.E;
+        e的x次方：Math.exp(x);
+        ln(e)：Math.log(x);
+    次方：
+        x的y次方：Math.pow(x, y);
+        x的平方根：Math.sqrt(x);
+    三角函数：
+        圆周率：Math.PI
+        Math.sin();
+        Math.cos();
+        Math.tan();
+        Math.asin();
+        Math.acos();
+        Math.atan();
+        弧度转换角度：Math.toDegress();
+        角度转换弧度：Math.toRadians();
+    返回随机数：
+        Math.random();
+
+    
+Character类方法：
+    判断是否是字母字符：
+        bool flag = Character.isLetter('c');
+    判断是否是数字字符：
+        bool flag = Character.isDigit('5');
+    判断是否是空白字符：
+        bool flag = Character.isWhitespace(' ');
+    判断是否是大写字母字符：
+        bool flag = Character.isUpperCase('C');
+    判断是否是小写字母字符：
+        bool flag = Character.isLowerCase('c');
+    转换为指定字母的大写形式：
+        char ch = Character.toUpperCase('c');
+    转换为指定字母的小写形式：
+        char ch = Character.toLowerCase('C');
+    字符转换为字符串：
+        String str = Character.toString('a');
+
+
+String类方法：
+    字符串长度：
+        int len = str.length();
+    字符串连接：
+        str1.concat(str2); // 或直接使用“+”连接
