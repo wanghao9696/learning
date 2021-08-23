@@ -67,7 +67,103 @@ Character类方法：
 
 
 String类方法：
+    判断字符串是否为空：
+        bool flag = str.isEmpty();
     字符串长度：
         int len = str.length();
     字符串连接：
         str1.concat(str2); // 或直接使用“+”连接
+    返回索引处字符：
+        char ch = str.charAt(6);
+    判断字符串是否相同：
+        bool flag = str1.equals(str2);
+        bool flag = str1.contentEquals(str2);
+    拷贝字符串：
+        str2 = str2.copyValueOf(str1);
+        str2 = str2.copyValueOf(str1, 2, 6); // 拷贝指定起始位置之内的字符串
+    判断字符串是否是指定后缀结束：
+        bool flag = str1.endEith("com");
+    返回str2在str1中出现位置的索引：
+        int index = str1.indexOf(str2);
+        int index = str1.indexOf(str2, 3); // 从指定位置开始遍历
+    返回str2在str1中最后一次出现位置的索引：
+        int index = str1.lastIndexOf(str2);
+        int index = str1.lastIndexOf(str2, 5); // 从指定位置开始反向遍历
+    字符串切片：
+        .  $  |  *  需加转移字符\\
+        String str = "www.baidu.com"
+        String[] str1 = str.split("\\.");
+        String[] str1 = str.split("\\.", 2); // 只切两段
+
+
+Java数组：
+    声明：
+        double[] myList = {1.1, 2.2, 3.3, 4.4};
+        double[] mList = new double[4];
+        double[] mList = new double{1.1, 2.2, 3.3, 4.4};
+    数组长度：
+        myList.length();
+    快捷遍历数组：
+        for(double d : myList)
+
+
+Java日期：
+    import java.util.Date;
+    Date date = new Date();
+    String dateStr = date.toString();
+
+
+Java文件操作：
+    import iava.io.*;
+    写文件：
+        File f = new File("a.txt");
+        FileOutputStream fop = new FileOutputStream(f);
+        OutputStreamWriter writer = new OutputWriter(fop, "UTF-8");
+        writer.append("内容");
+        writer.close();
+        fop.close();
+    读文件：
+        File f = new File("a.txt");
+        FileInputStream fip = new FileInputStream(f);
+        InputStreamReader reader = new InputStreamReader(fip);
+        StringBuffer sb = new StringBuffer();
+        while(reader.ready()){
+            sb.append((char) reader.read())
+        }
+        System.out.println(sb.toString);
+        reader.close();
+        fip.close();
+    创建目录：
+        String dirname = "";
+        File d = new File(dirname);
+        d.mkdirs();
+    读取目录：
+        String dirname = "";
+        File f = new File(dirname);
+        if(f.isDirectory()){
+            String s[] = f1.list();
+        }
+    删除目录或文件：
+        deleteFolder(file);
+        file.delete();
+
+
+Scanner类：
+    import java.util.Scanner;
+    从键盘接收数据：
+        Scanner sc = new Scanner(System.in);
+        if(sc.hasNext()){
+            String str = sc.next();
+        }
+
+        Scanner sc = new Scanner(System.in);
+        if(sc.hasNextLine()){
+            String str = sc.nextLine();
+        }
+
+        Scanner sc = new Scanner(System.in);
+        if(sc.hasNextInt()){
+            int n = sc.nextInt();
+        }
+
+        sc.close();

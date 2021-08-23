@@ -1,0 +1,69 @@
+Java继承：
+    final关键字：
+        final class 类名{}
+        (final关键字声明类可以把类定义为不能继承的，最终类；也可用于修饰方法，该方法不能被子类重写)
+    super与this关键字：
+        super关键字：访问父类成员，引用当前对象的父亲
+        this关键字：指向子类自己的引用
+    构造器：
+        子类不继承父类的构造器，只是调用；
+        如果父类构造器含有参数，则必须在子类的构造器中显式的通过super关键字调用父类的构造器并配以适当的参数
+    static关键字：
+        声明为static的的方法不可被重写，但可以被再次声明
+
+抽象类：
+    public abstract class Employee{
+        private String name;
+        private String address;
+        private int number;
+
+        public abstract double computePay(); // 抽象方法，只有声明没有定义
+    }
+    抽象类不能被实例化，抽象类的非抽象子类才可以创建对象
+    如果一个类包含抽象方法，那么类必须是抽象类
+    任何子类必须重写父类的抽象方法，或者声明自身为抽象类
+    构造方法，类方法（用static修饰的方法）不能声明为抽象方法
+
+
+接口：
+    接口不能用做实例化，没有构造方法，接口中所有方法必须是抽象方法
+    接口不是被类继承，而是被类实现
+    接口支持多继承
+
+    抽象类与接口的区别：
+        1.抽象类中的方法可以有方法体，就是实现方法的具体功能，接口中没有
+        2.抽象类中的成员变量可以是各种类型的，而接口中的成员变量只能是public static final类型
+        3.接口中不能含有静态代码块以及静态方法（用static修饰的方法），而抽象类是可以有静态代码块和静态方法
+        4.一个类只能继承一个抽象类，一个类却可以实现多个接口
+
+
+枚举：
+    方法：
+        values(): 返回枚举中的所有的值
+        ordinal(): 找到每个枚举常量的索引，类似于数组索引
+        valueOf(): 返回指定字符串值的枚举常量
+
+
+数据结构：
+    枚举（Enumeration）
+    位集合（BitSet）
+    向量（Vector）
+    栈（Stack）
+    哈希表（Hashtable）
+    属性（Properties）
+    
+    vector：
+        Vector v = new Vector(3); // 大小
+        Vector v = new Vector(3, 2); // 大小和增量
+        方法：
+            v.addElement(new Interger(2)); // 末尾增加元素
+            v.capacity(); // 容量
+            v.clear(); // 清空
+            v.clone(); // 返回向量副本
+            v.get(index); // 返回索引处元素
+            v.indexOf(elem); // 返回指定元素的索引，没有则返回-1
+            v.isEmpty(); // 判断是否为空
+            v.firstElement(); // 返回第一个元素
+            v.lastElement(); // 返回最后一个元素
+            v.remove(index); // 移除
+            v.size(); // 返回向量的组建数
