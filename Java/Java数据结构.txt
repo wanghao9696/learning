@@ -1,0 +1,69 @@
+
+数据结构：
+    枚举（Enumeration）
+    位集合（BitSet）
+    向量（Vector）
+    栈（Stack）
+    哈希表（Hashtable）
+    属性（Properties）
+
+    vector：
+        Vector v = new Vector(3); // 大小
+        Vector v = new Vector(3, 2); // 大小和增量
+        方法：
+            v.addElement(new Interger(2)); // 末尾增加元素
+            v.capacity(); // 容量
+            v.clear(); // 清空
+            v.clone(); // 返回向量副本
+            v.get(index); // 返回索引处元素
+            v.indexOf(elem); // 返回指定元素的索引，没有则返回-1
+            v.isEmpty(); // 判断是否为空
+            v.firstElement(); // 返回第一个元素
+            v.lastElement(); // 返回最后一个元素
+            v.remove(index); // 移除
+            v.size(); // 返回向量的组建数
+
+    ArrayList(数组):
+        ArrayList<String> arr = new ArrayList<String>();
+        arr.add("hello");
+        arr.get(0);
+        arr.set(0, "hi");
+        arr.remove(0);
+        arr.size();
+        arr.indexOf(elem);
+        for(String str : arr){}
+        Collections.sort(arr);
+
+    LinkedList(链表):
+        LinkedList<String> sites = new LinkedList<String>();
+        sites.add("hello");
+        sites.addFirst("begin");
+        sites.addLast("last");
+        sites.removeFirst("begin");
+        sites.removeLast("last");
+        sites.getFirst();
+        sites.getLast();
+        sites.get(0);
+    
+    HashSet(集合，buchongfu)：
+        HashSet<String> sites = new HashSet<String>();
+        sites.add("hello");
+        sites.contains("hello"); // 返回true
+        sites.remove("hello");
+        sites.clear();
+        sites.size();
+    
+    HashMap(字典)：
+        HashMap<String, String> sites = new HashMap<String, String>();
+        sites.put("key", "value");
+        sites.get(key);
+        sites.remove(key);
+        sites.clear();
+        sites.size();
+        for(Interger i : sites.keySet()){}
+
+    iterator(迭代器)：
+        Interger<String> it = sites.iterator();
+        it.next(); // 第一个元素
+        it.remove();
+        while(it.hasNext){}

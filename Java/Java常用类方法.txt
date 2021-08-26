@@ -90,7 +90,7 @@ String类方法：
         int index = str1.lastIndexOf(str2);
         int index = str1.lastIndexOf(str2, 5); // 从指定位置开始反向遍历
     字符串切片：
-        .  $  |  *  需加转移字符\\
+        .  $  |  *  需加转义字符\\
         String str = "www.baidu.com"
         String[] str1 = str.split("\\.");
         String[] str1 = str.split("\\.", 2); // 只切两段

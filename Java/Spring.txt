@@ -1,0 +1,25 @@
+Spring：
+    优点：
+        低侵入式设计，代码的污染极低；
+        独立于各种应用服务器，基于Spring框架的应用，可以真正实现Write Once，Run Anywhere的承诺；
+        Spring的IoC容器降低了业务对象替换的复杂性，提高了组件之间的解耦；
+        Spring的AOP支持允许将一些通用任务如安全、事务、日志等进行集中式管理，从而提供了更好的复用；
+        Spring的ORM和DAO提供了与第三方持久层框架的良好整合，并简化了底层的数据库访问；
+        Spring的高度开放性，并不强制应用完全依赖于Spring，开发者可自由选用Spring框架的部分或全部；
+    核心机制：
+        管理Bean：
+            程序主要通过Spring容器来访问容器中的Bean，ApplicationContext是Spring容器最常用的接口，该接口有如下两个类：
+                ClassPathXmlApplicationContext：从类加载路径下搜索配置文件，并根据配置文件来创建Spring容器；
+                FileSystemXmlApplicationContext：从文件系统的相对路径或绝对路径下去搜索配置文件，并根据配置文件来创建Spring容器；
+
+    
+    Spring框架模块：
+        1. 核心容器（Core）
+            Spring框架最基础的部分，它提供了依赖注入特征来实现容器对Bean的管理。最基本的概念是BeanFactory，是任何Spring应用的核心。BeanFactory是工厂模式的一个实现，它使用IoC将应用配置和依赖说明从世纪的应用代码中分离出来；
+        2. AOP模块
+            AOP即面向切面编程技术，Spring在它的AOP模块中提供了对面向切面编程的丰富支持。AOP允许通过分离应用的业务逻辑与系统级服务（例如安全和事务管理）进行内聚性的开发。应用对象只实现它们应该做的——完成业务逻辑。
+        3. 对象/关系映射集成模块ORM
+        4. JDBC抽象和DAO、模块
+        5. Spring的Web模块
+        6. 应用上下文模块
+        7. Spring的MVC框架
